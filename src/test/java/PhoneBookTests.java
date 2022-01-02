@@ -62,10 +62,40 @@ public class PhoneBookTests{
         buttonLogin.click();
     }
 
+    @Test
+
+    public void fillFOrmRegistration() {
+
+        wd.findElement(By.tagName("input"));
+
+        List<WebElement> list = wd.findElements(By.tagName("input"));
+        WebElement inputEmail = list.get(0);
+        WebElement inputPassword = list.get(1);
+
+        inputEmail.click();
+        inputEmail.clear();
+        inputEmail.sendKeys("aleksa.minkovska@gmail.com");
+
+        inputPassword.click();
+        inputPassword.clear();
+        inputPassword.sendKeys("Amin123%");
+
+        WebElement buttonRegistration = wd.findElement(By.tagName("button"));
+//        List<WebElement> list1 = wd.findElements(By.tagName("button"));
+//        WebElement buttonLogin = list1.get(0);
+//        WebElement buttonRegistration = list.get(1);
+//
+//        buttonRegistration.click();
+        buttonRegistration.click();
+
+
+    }
+
+
     @AfterMethod
     public void close(){
         //wd.quit(); // close all tabs
-        wd.close(); // focus wd
+        //wd.close(); // focus wd
     }
 
 
