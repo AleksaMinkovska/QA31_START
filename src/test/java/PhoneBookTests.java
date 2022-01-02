@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class PhoneBookTests {
+public class PhoneBookTests{
 
     WebDriver wd;
 
@@ -65,6 +65,9 @@ public class PhoneBookTests {
     @AfterMethod
     public void close(){
         //wd.quit(); // close all tabs
-        //wd.close(); // focus wd
+        wd.close(); // focus wd
     }
+
+
+
 }
