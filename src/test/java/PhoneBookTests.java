@@ -27,6 +27,7 @@ public class PhoneBookTests{
 
         WebElement element = wd.findElement(By.tagName("a"));
         wd.findElement(By.cssSelector("a"));
+        wd.findElement(By.xpath("//a")); // xPath
         element.click();
         element.clear();  // srabotajet tolko s elementami gde fiziceski mozno sdelatj clear.
         element.sendKeys("Hello");
@@ -36,24 +37,33 @@ public class PhoneBookTests{
 
         WebElement elId = wd.findElement(By.id("root"));
         wd.findElement(By.cssSelector("#root")); //  # - rewetka znachit id
+        wd.findElement(By.xpath("//*[@id='root']")); // xPath
 
         WebElement elClass = wd.findElement(By.className("container"));
         wd.findElement(By.cssSelector(".container"));  // . - tocka oboznacjajet klass
+        wd.findElement(By.xpath("//*[@class='container'")); // -xPath
 
         WebElement elName = wd.findElement(By.name("EXAMPLE"));
+        wd.findElement(By.cssSelector("[name='nameEx'")); // cssSelector
+        wd.findElement(By.xpath("//*[@name='nameEx'")); // xPath
 
         WebElement elLink = wd.findElement(By.linkText("HOME"));
         WebElement elPLink = wd.findElement(By.partialLinkText("HOM"));
 
         wd.findElement(By.cssSelector("[href='/home']"));   // by href
+        wd.findElement(By.xpath("//*[@href='/home'")); // * - ne znaja elementi
+
         wd.findElement(By.cssSelector("a[href='/home']"));
+        wd.findElement(By.xpath("//a[@href='/home'")); // - znaja element 'a'
+
+
     }
 
     @Test
     public void fillFormLogin(){
         wd.findElement(By.tagName("input"));  // vsegda najdjot tolko 1-ij element
 
-        List <WebElement> list = wd.findElements(By.tagName("input"));
+        List <WebElement> list = wd.findElements(By.tagName("iut"));
         WebElement inputEmail = list.get(0);
         WebElement inputPassword = list.get(1);
 
@@ -92,6 +102,7 @@ public class PhoneBookTests{
         buttonRegistration.click();
 
     }
+
 
 
     @AfterMethod
