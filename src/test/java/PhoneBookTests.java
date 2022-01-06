@@ -20,13 +20,13 @@ public class PhoneBookTests{
         wd.manage().window().maximize();
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/login"); //with history, back forward
 
-
     }
 
     @Test
     public void phoneBookStart(){
 
         WebElement element = wd.findElement(By.tagName("a"));
+        wd.findElement(By.cssSelector("a"));
         element.click();
         element.clear();  // srabotajet tolko s elementami gde fiziceski mozno sdelatj clear.
         element.sendKeys("Hello");
@@ -35,11 +35,18 @@ public class PhoneBookTests{
         /////////////////////////////////////////////////////////
 
         WebElement elId = wd.findElement(By.id("root"));
+        wd.findElement(By.cssSelector("#root")); //  # - rewetka znachit id
+
         WebElement elClass = wd.findElement(By.className("container"));
+        wd.findElement(By.cssSelector(".container"));  // . - tocka oboznacjajet klass
+
         WebElement elName = wd.findElement(By.name("EXAMPLE"));
 
         WebElement elLink = wd.findElement(By.linkText("HOME"));
         WebElement elPLink = wd.findElement(By.partialLinkText("HOM"));
+
+        wd.findElement(By.cssSelector("[href='/home']"));   // by href
+        wd.findElement(By.cssSelector("a[href='/home']"));
     }
 
     @Test
@@ -63,31 +70,26 @@ public class PhoneBookTests{
     }
 
     @Test
-
-    public void fillFOrmRegistration() {
-
-        wd.findElement(By.tagName("input"));
+    public void fillFormRegistration() {
 
         List<WebElement> list = wd.findElements(By.tagName("input"));
         WebElement inputEmail = list.get(0);
         WebElement inputPassword = list.get(1);
 
+        // WebElement inputEmail1 = wd.findElement(By.cssSelector("[placeholder='Email']"));   // 2-oj variat rewenija, prowe i bolee pravilno
+
         inputEmail.click();
         inputEmail.clear();
-        inputEmail.sendKeys("aleksa.minkovska@gmail.com");
+        inputEmail.sendKeys("markus.zilakov@yahoo.com");
 
         inputPassword.click();
         inputPassword.clear();
-        inputPassword.sendKeys("Amin123%");
+        inputPassword.sendKeys("Mastr9876$");
 
-        WebElement buttonRegistration = wd.findElement(By.tagName("button"));
-//        List<WebElement> list1 = wd.findElements(By.tagName("button"));
-//        WebElement buttonLogin = list1.get(0);
-//        WebElement buttonRegistration = list.get(1);
-//
-//        buttonRegistration.click();
+        List<WebElement> buttons = wd.findElements(By.tagName("button"));
+        WebElement buttonRegistration = buttons.get(1);
+
         buttonRegistration.click();
-
 
     }
 
